@@ -1,0 +1,2 @@
+nest g module module-name
+nest g controller controller-name
