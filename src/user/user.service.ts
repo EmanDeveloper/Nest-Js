@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ConflictException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { RegisterUserDto } from 'src/auth/dto/registerUser.dto';
 import { User, UserDocument } from './schemas/user.schema';
@@ -19,8 +19,8 @@ export class UserService {
                 role: registerUserDto.role,
                 password: registerUserDto.password
             });
-        } catch (error) {
-            throw new Error('Error occurred while creating user');
+        } catch (error:any) {
+            throw new ConflictException(error.message);
         }
     }
 }
