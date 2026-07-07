@@ -16,3 +16,13 @@ export class RegisterUserDto {
     @MaxLength(100)
     password!: string;
 }
+
+export class LoginUserDto {
+    @IsEmail()
+    email!: string;
+    @IsNotEmpty()
+    @IsString()
+    @MinLength(6)
+    @MaxLength(100)
+    password!: string;
+}

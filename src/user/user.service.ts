@@ -23,4 +23,12 @@ export class UserService {
             throw new ConflictException(error.message);
         }
     }
+
+    async findByEmail(email: string) {
+        try {
+            return await this.userModel.findOne({ email });
+        } catch (error:any) {
+            throw new ConflictException(error.message);
+        }
+    }
 }
